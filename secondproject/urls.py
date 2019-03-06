@@ -19,6 +19,7 @@ import blog.views
 from django.conf import settings
 from django.conf.urls.static import static
 #아래 두줄은 media사용하려면 필수로 import해줘야할것임
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blog.views.home, name='home'),
@@ -28,5 +29,6 @@ urlpatterns = [
     path('blog/portpolio/', blog.views.portpolio, name="portpolio"),
     path('accounts/', include('accounts.urls')),
     path('blog/newblog/', blog.views.blogpost, name="newblog"),
+    path('accounts/', include('allauth.urls')), 
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-
+# 맨아래줄 media파일 사용하려면 추가해줘하함

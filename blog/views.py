@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 from .models import Blog
 from .models import Portpolio
 from .forms import BlogPost
+from .models import Pictures 
 def home(request):
     blogs = Blog.objects
     #모델로부터 객체 목록을 전달받을수 있음(.object)
@@ -67,3 +68,7 @@ def blogpost(request):
     else:
         form = BlogPost()
         return render(request, 'new.html', {'form': form})
+
+def home(request):
+    blog = Pictures.objects
+    return render(request, 'home.html', {'blog': blog})

@@ -2,7 +2,31 @@
 {% extends 'base.html' %}
 <!-- extends는 모든태그에 비해서 우선순위가 높음 -->
 {% block contents %}
-       
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="vewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>간단한 지도 표시하기</title>
+    <script type="text/javascript"  src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h9j1mpz66f"></script>
+</head>
+<body>
+<div id="map" style="width:50%;height:400px;" class="container  "></div>
+
+<script>
+var mapOptions = {
+    center: new naver.maps.LatLng(36.3349683,127.3967289),
+    zoom: 19
+};
+
+var map = new naver.maps.Map('map', mapOptions);
+</script>
+</body>
+</html>
 <br>
 <div class="container">
     {% for blog in posts %}
@@ -45,4 +69,6 @@
         margin-bottom: 20px;
     }
 </style>
+
+
 {% endblock %}
